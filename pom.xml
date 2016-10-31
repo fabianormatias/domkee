@@ -31,7 +31,7 @@
 	<scm>
 		<url>http://github.com/jrimum/domkee</url>
 	</scm>
-	
+
 	<developers>
 		<developer>
 			<name>Gilmar P. S. L.</name>
@@ -50,6 +50,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<additionalparam>-Xdoclint:none</additionalparam>
 	</properties>
 
 	<build>
@@ -89,8 +90,8 @@
 				<version>2.4</version>
 				<configuration>
 					<descriptors>
-                        <descriptor>src/main/assembly/jrimum-domkee-with-dependencies.xml</descriptor>
-                    </descriptors>
+						<descriptor>src/main/assembly/jrimum-domkee-with-dependencies.xml</descriptor>
+					</descriptors>
 				</configuration>
 				<executions>
 					<execution>
@@ -144,18 +145,25 @@
 						</goals>
 					</execution>
 				</executions>
-				 <configuration>
-			        <charset>UTF-8</charset>
+				<configuration>
+					<charset>UTF-8</charset>
 					<docencoding>UTF-8</docencoding>
 					<docfilessubdirs>true</docfilessubdirs>
 					<show>private</show>
-		    	</configuration>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.8.1</version>
-			</plugin>	
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<additionalparam>-Xdoclint:none</additionalparam>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -173,19 +181,19 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
- 			<groupId>com.google.guava</groupId>
-   	 		<artifactId>guava-jdk5</artifactId>
-    		<version>14.0.1</version>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava-jdk5</artifactId>
+			<version>14.0.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
- 			<groupId>org.hamcrest</groupId>
-   	 		<artifactId>hamcrest-all</artifactId>
-    		<version>1.3</version>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<repositories>
 		<repository>
 			<id>jrimum.org</id>
@@ -195,7 +203,7 @@
 			</snapshots>
 		</repository>
 	</repositories>
-	
+
 	<distributionManagement>
 		<snapshotRepository>
 			<id>org.jrimum.snapshots</id>
@@ -206,5 +214,5 @@
 			<url>http://jrimum.org/maven/content/repositories/org.jrimum.releases/</url>
 		</repository>
 	</distributionManagement>
-	
+
 </project>
