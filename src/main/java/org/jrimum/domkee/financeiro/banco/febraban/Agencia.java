@@ -57,20 +57,20 @@ import org.jrimum.utilix.Objects;
  * 
  * @version 0.2
  */
-public class Agencia implements org.jrimum.domkee.financeiro.banco.Agencia<String, String> {
+public class Agencia implements org.jrimum.domkee.financeiro.banco.Agencia<Integer, String> {
 
-	private final String codigo;
+	private final Integer codigo;
 
 	private final String digitoVerificador;
 	
-	public Agencia(String codigo) {
+	public Agencia(Integer codigo) {
 
 		this.codigo = codigo;
 		verifyCodigo();
 		this.digitoVerificador = EMPTY;
 	}
 	
-	public Agencia(String codigo, String digito) {
+	public Agencia(Integer codigo, String digito) {
 
 		this.codigo = codigo;
 		verifyCodigo();
@@ -80,7 +80,7 @@ public class Agencia implements org.jrimum.domkee.financeiro.banco.Agencia<Strin
 	
 	public void verifyCodigo() {
 
-		if (Integer.parseInt(codigo) < 0 ) {
+		if (codigo < 0 ) {
 			Exceptions.throwIllegalArgumentException("O código da agência deve ser um inteiro natural (incluindo zero)");
 		}
 		
@@ -104,7 +104,7 @@ public class Agencia implements org.jrimum.domkee.financeiro.banco.Agencia<Strin
 		}
 	}
 
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
